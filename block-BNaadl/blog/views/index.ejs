@@ -7,17 +7,21 @@
     <link rel="stylesheet" href="/stylesheets/style.css" />
   </head>
   <body>
-    <header>
-      <h1>titles -list</h1>
+    <header class="homeHeader">
+      <nav class="container">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="addArticleNav"><a href="/articles/new">add article</a></li>
+        </ul>
+      </nav>
     </header>
-
-    <% articles.forEach(article=>{%>
-    <div class="container">
-      <h2>Welcome to: <%= article.title %></h2>
-      <button>
-        <a href="/articles/<%= article.id %>">details</a>
-      </button>
-    </div>
-    <%})%>
+    <main class="homeMain">
+      <div>
+        <h1>blog App</h1>
+        <button>
+          <a href="/articles"> go to article </a>
+        </button>
+      </div>
+    </main>
   </body>
 </html>
