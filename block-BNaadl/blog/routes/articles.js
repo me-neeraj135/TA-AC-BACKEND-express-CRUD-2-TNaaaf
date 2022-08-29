@@ -4,18 +4,27 @@ var express = require("express");
 var router = express.Router();
 var Article = require(`../models/articles`);
 
-// get new article form
+// get articles
 
 router.get(`/`, (req, res, next) => {
-  res.render(`articleForm`);
+  Article.find({}, (err, articles) => {
+    if (err) return next(err);
+
+    res.render(`articles`, { articles: articles });
+  });
 });
 
 // get  form to add article
 
-router.post(`/new`, (req, res, next) => {
+router.get(`/new`, (req, res, next) => {
+  res.render(`articleForm`);
+});
+
+router.post(`/`, (req, res, next) => {
+  req.body.tats = req.body.tags.trim().split(`  `);
   Article.create(req.body, (err, article) => {
     if (err) return next(err);
-    res.render(`article`, { article: article });
+    res.redirect(`/articles`);
   });
 });
 
@@ -42,7 +51,7 @@ router.get(`/:id/delete`, (req, res, next) => {
   let id = req.params.id;
   Article.findByIdAndDelete(id, (err, article) => {
     if (err) return next(err);
-    res.redirect(`/`);
+    res.redirect(`/articles`);
   });
 });
 

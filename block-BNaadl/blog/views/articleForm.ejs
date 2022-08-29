@@ -10,21 +10,26 @@
     <title>article form</title>
   </head>
   <body>
-    <header>article form</header>
+    <header class="homeHeader">
+      <nav class="container">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="addArticleNav"><a href="/articles/new">add article</a></li>
+        </ul>
+      </nav>
+    </header>
     <main>
       <div class="formBox">
-        <form action="/articles/new" method="post">
+        <h1>Add article</h1>
+        <form action="/articles" method="post">
           <input type="text" name="title" placeholder="title" />
           <input type="text" name="tags" placeholder="tags" />
           <input type="text" name="author" placeholder="author" />
           <input type="number" name="likes" placeholder="likes" /> <br />
-          <textarea name="description" id="" cols="30" rows="10"  ></textarea>
+          <textarea name="description" id="" cols="30" rows="10"></textarea>
           <br />
           <input type="submit" value="add article" />
         </form>
-        <button>
-          <a href="/">list articles</a>
-        </button>
       </div>
     </main>
   </body>
