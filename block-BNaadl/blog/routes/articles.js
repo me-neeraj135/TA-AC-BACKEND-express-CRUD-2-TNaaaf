@@ -32,6 +32,7 @@ router.post(`/`, (req, res, next) => {
 router.get(`/:id/edit`, (req, res, next) => {
   let id = req.params.id;
   Article.findById(id, (err, article) => {
+    article.tags = article.tags.join(` `);
     if (err) return next(err);
     res.render(`editForm`, { article: article });
   });
@@ -41,6 +42,8 @@ router.get(`/:id/edit`, (req, res, next) => {
 router.post(`/:id/update`, (req, res, next) => {
   let id = req.params.id;
   Article.findByIdAndUpdate(id, req.body, (err, article) => {
+    req.body.tats = req.body.tags.trim().split(`  `);
+
     if (err) return next(err);
     res.redirect(`/articles/${id}`);
   });
