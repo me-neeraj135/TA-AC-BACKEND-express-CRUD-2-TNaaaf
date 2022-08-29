@@ -1,0 +1,57 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>article form</title>
+  </head>
+  <body>
+    <header>article edit form</header>
+    <main>
+      <div class="formBox">
+        <form action="/articles/<%= article.id %>/update" method="post">
+          <input
+            type="text"
+            name="title"
+            placeholder="title"
+            value="<%= article.title %>"
+          />
+          <input
+            type="text"
+            name="tags"
+            placeholder="tags"
+            value="<%= article.tags %>"
+          />
+          <input
+            type="text"
+            name="author"
+            placeholder="author"
+            value="<%= article.author %>"
+          />
+          <input
+            type="number"
+            name="likes"
+            placeholder="likes"
+            value="<%= article.likes %>"
+          />
+          <br />
+          <textarea name="description" id="" cols="30" rows="10">
+            <%= article.description %>
+          </textarea>
+          <br />
+          <input type="submit" value="update article" />
+        </form>
+        <button>
+          <a href="/"> go to home page </a>
+        </button>
+        <button>
+          <a href="/articles/<%= article.id %>">article details</a>
+        </button>
+      </div>
+    </main>
+  </body>
+</html>
