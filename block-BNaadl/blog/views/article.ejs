@@ -19,7 +19,7 @@
         <p>description: <%= article.description.slice(0,100)+`...` %></p>
         <h3>tags: <%= article.tags %></h3>
         <h2>author: <%= article.author %></h2>
-        <span>likes: <%= article.likes %> </span><br />
+        <span>likes: <%= article.likes?article.likes:0 %> </span><br />
 
         <button>
           <a href=" /articles/<%= article.id %>/inc ">increment likes</a>
