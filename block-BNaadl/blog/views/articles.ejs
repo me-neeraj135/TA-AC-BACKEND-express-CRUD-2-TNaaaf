@@ -1,0 +1,41 @@
+<!-- @format -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>all articles</title>
+  </head>
+  <body>
+    <header class="homeHeader">
+      <nav class="container">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li class="addArticleNav"><a href="/articles/new">add article</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="articlesMain">
+      <div class="allArticles">
+        <h1>all articles</h1>
+
+        <% if( articles.length ){%> <% articles.forEach(a=> {%>
+
+        <section class="artSections">
+          <div>
+            <a href="/articles/<%= a.id %>">
+              <h2><%= a.title %></h2>
+            </a>
+          </div>
+        </section>
+        <% }) %> <%}else{%>
+
+        <h3>no articles present</h3>
+        <%} %>
+      </div>
+    </main>
+  </body>
+</html>
