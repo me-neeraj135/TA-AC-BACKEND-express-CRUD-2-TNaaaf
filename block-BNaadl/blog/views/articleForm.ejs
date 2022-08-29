@@ -1,0 +1,31 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>article form</title>
+  </head>
+  <body>
+    <header>article form</header>
+    <main>
+      <div class="formBox">
+        <form action="/articles/new" method="post">
+          <input type="text" name="title" placeholder="title" />
+          <input type="text" name="tags" placeholder="tags" />
+          <input type="text" name="author" placeholder="author" />
+          <input type="number" name="likes" placeholder="likes" /> <br />
+          <textarea name="description" id="" cols="30" rows="10"  ></textarea>
+          <br />
+          <input type="submit" value="add article" />
+        </form>
+        <button>
+          <a href="/">list articles</a>
+        </button>
+      </div>
+    </main>
+  </body>
+</html>
