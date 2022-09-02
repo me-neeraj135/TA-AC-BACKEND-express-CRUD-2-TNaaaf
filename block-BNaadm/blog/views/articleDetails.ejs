@@ -1,0 +1,60 @@
+<!-- @format -->
+
+<% include partial/header %>
+<body>
+  <section class="container articleDetailsBox">
+    <div>
+      <h1><%= article.title %></h1>
+      <p><%= article.description %></p>
+      <h2><%= article.author %></h2>
+
+      <span><%= article.likes ? article.likes :0 %></span><br />
+
+      <button class="IncLikesBtn">
+        <a href=" /articles/<%= article.id%>/inc">likes +</a>
+      </button>
+      <button class="decLikesBtn">
+        <a href="/articles/<%= article.id %>/dec"> likes -</a>
+      </button>
+      <br />
+
+      <button class="editBtn">
+        <a href="/articles/<%= article.id %>/edit">edit</a>
+      </button>
+      <button class="deleteBtn">
+        <a href="/articles/<%= article.id %>/delete"> delete</a>
+      </button>
+      <br />
+      <form
+        class="commentForm"
+        action="/articles/<%= article.id %>/comment"
+        method="post"
+      >
+        <textarea
+          id=""
+          cols="30"
+          rows=""
+          placeholder="add comment..."
+          name="content"
+        ></textarea>
+        <br />
+        <input type="submit" value="add" />
+      </form>
+      <h3>comments</h3>
+      <hr />
+
+      <% if(article.comments.length){%> <% article.comments.forEach(c=>{%>
+
+      <div class="commentContainer">
+        <p><%= c.content %></p>
+
+        <a class="editComment" href="/comments/<%= c.id %>/edit">edit</a>
+
+        <a class="deleteComment" href="/comments/<%= c.id %>/delete"> delete</a>
+      </div>
+      <%})%>
+    </div>
+
+    <%}%>
+  </section>
+</body>
