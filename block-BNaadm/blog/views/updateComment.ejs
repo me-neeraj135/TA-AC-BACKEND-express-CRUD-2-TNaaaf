@@ -1,0 +1,14 @@
+<!-- @format -->
+
+<% include partial/header %>
+
+<section class="updateCommentSection">
+  <form action="/comments/<%= comment.id %>" method="post">
+    <h1>update comment</h1>
+    <textarea name="content" id="" cols="30" rows="7">
+        <%= comment.content %>
+    </textarea>
+    <br />
+    <input type="submit" value="update" />
+  </form>
+</section>

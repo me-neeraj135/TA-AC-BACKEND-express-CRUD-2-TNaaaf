@@ -1,0 +1,44 @@
+<!-- @format -->
+
+<head>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  <section class="container formSections">
+    <div class="formBox">
+      <h1>add article</h1>
+      <form action="/articles/<%= article.id%>/update" method="post">
+        <input
+          type="text"
+          name="title"
+          placeholder="title"
+          value="<%= article.title %>"
+        />
+        <input
+          type="text"
+          name="author"
+          placeholder="author"
+          value="<%= article.author %>"
+        />
+        <textarea
+          name="description"
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="description"
+        >
+        <%= article.description %>
+    </textarea
+        >
+        <input
+          type="text"
+          name="tags"
+          placeholder="tags"
+          value="<%= article.tags %>"
+        />
+
+        <input class="submit" type="submit" value="update" />
+      </form>
+    </div>
+  </section>
+</body>
