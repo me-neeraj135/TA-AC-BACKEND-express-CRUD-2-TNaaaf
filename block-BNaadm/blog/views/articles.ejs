@@ -1,0 +1,21 @@
+<!-- @format -->
+
+<% include partial/header %>
+
+<section class="container allArticlesContainer">
+  <% if(articles.length){%>
+  <h1>all articles</h1>
+  <% articles.forEach(a=>{%>
+
+  <div>
+    <h2><%= a.title %></h2>
+
+    <button>
+      <a href="/articles/<%= a.id%>">show </a>
+    </button>
+  </div>
+  <%}) %> <% } else {%>
+
+  <h3>no articles present</h3>
+  <% } %>
+</section>

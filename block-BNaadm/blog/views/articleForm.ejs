@@ -1,0 +1,25 @@
+<!-- @format -->
+<head>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+<body>
+  <section class="container formSections">
+    <div class="formBox">
+      <h1>add article</h1>
+      <form action="/articles" method="post">
+        <input type="text" name="title" placeholder="title" />
+        <input type="text" name="author" placeholder="author" />
+        <textarea
+          name="description"
+          id=""
+          cols="30"
+          rows="10"
+          placeholder="description"
+        ></textarea>
+        <input type="text" name="tags" placeholder="tags" />
+
+        <input class="submit" type="submit" value="add article" />
+      </form>
+    </div>
+  </section>
+</body>
