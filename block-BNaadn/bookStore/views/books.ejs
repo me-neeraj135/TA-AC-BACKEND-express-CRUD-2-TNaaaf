@@ -1,0 +1,102 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Books</title>
+  </head>
+  <body style="background-color: #131325 ;">
+    <header class="formHeader">
+      <nav class="container headerNav">
+        <ul>
+          <li>
+            <button>
+              <a href="/books/new">add book</a>
+            </button>
+          </li>
+         
+          <li>
+            <input type="text" placeholder="search">
+            <button>
+              <a href="/">back</a>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <ul class=" booksUl container">
+
+<% if(books.length){%>
+
+  <form  action=""  method="post" >
+    <select  style="width: 10rem;"  name="" id=""   aria-placeholder="search by category" >
+      <option value="" disabled selected >search by book name</option>
+      <% books.forEach(book=>{%>
+      <option value="<%= book.id %>">  <%= book.title %></option>
+    <%}) %>
+  </select>
+  <input type="submit" value="search">
+
+
+</form>
+<form action="" method="post">
+  <select  style="width: 10rem;"  name="" id=""   aria-placeholder="search by category">
+    <option value="" disabled selected >search by Category</option>
+    <% books.forEach(book=>{%>
+      <option value="<%= book.category %>">  <%= book.category %></option>
+      <%}) %>
+    </select>
+    <input type="submit" value="search">
+  </form>
+
+  <form action="">
+ <select  style="width: 10rem;"  name="" id=""   aria-placeholder="search by category" aria-valuenow="" >
+    <option value="" disabled selected >search by author</option>
+    <% books.forEach(book=>{%>
+      <option value="<%= book.title %>">  <%= book .author.name %></option>
+    <%}) %>
+  </select>
+  <input type="submit" value="search">
+
+  </form>
+ 
+ <h1>all books</h1>
+
+
+
+
+        <% books.forEach( book=> {%>
+           <li class="">
+           <figure>
+              <img
+                src="/images/<%= book.image %>"
+                alt="book"
+              />
+            </figure>
+            <div class="booksSummary">
+              <p><%= book.summary %>...</p>
+              <br />
+              <h3><%= book.author.name %></h3>
+              <button>
+                <a href="/books/<%= book.id %>">show</a>
+              </button>
+             
+            </div>
+          </div>
+      </li>
+      <%})%>
+
+<%} else{%>
+  <h2 style="font-size: 2rem; color:gray; text-align: center; ">no book presents</h2>
+
+<%}%>
+ </ul>
+     
+  </main>
+  </body>
+</html>
