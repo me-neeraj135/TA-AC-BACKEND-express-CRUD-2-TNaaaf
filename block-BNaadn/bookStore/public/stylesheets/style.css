@@ -1,0 +1,391 @@
+/** @format */
+/** @format */
+@import url("https://fonts.googleapis.com/css2?family=Signika:wght@500&display=swap");
+* {
+  box-sizing: border-box; }
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; }
+
+body {
+  line-height: 1;
+  font-family: "Signika", sans-serif;
+  margin: 0; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.container {
+  max-width: 100vw;
+  width: 90%;
+  margin: auto; }
+
+.header {
+  background-color: #452672;
+  padding: 1rem 0; }
+
+.headerNav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  .headerNav ul li h1 {
+    font-size: 3rem;
+    text-transform: capitalize;
+    color: gray; }
+  .headerNav ul button {
+    padding: 0.5rem 1rem;
+    background-color: #dbd1cf;
+    border: none;
+    border-radius: 4px; }
+    .headerNav ul button a {
+      font-size: 1rem;
+      text-decoration: none;
+      text-transform: capitalize;
+      color: black; }
+
+.homeSection {
+  height: 90vh;
+  display: flex;
+  background-color: #dddee6; }
+  .homeSection .homeContainer {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .homeSection .homeContainer .homeHeadingBox {
+      display: flex;
+      width: 60%;
+      height: 100%;
+      background-color: #f8f6fb;
+      position: relative;
+      align-items: center; }
+      .homeSection .homeContainer .homeHeadingBox h1 {
+        display: inline-block;
+        font-size: 6rem;
+        color: #452672;
+        text-transform: capitalize;
+        text-shadow: 0 4px 4px #452672; }
+      .homeSection .homeContainer .homeHeadingBox .img {
+        width: 40%;
+        height: 20rem;
+        position: absolute;
+        right: -10rem;
+        bottom: 5rem; }
+        .homeSection .homeContainer .homeHeadingBox .img img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover; }
+    .homeSection .homeContainer .headingBox {
+      width: 40%;
+      height: 100%;
+      text-align: center;
+      background-color: #452672; }
+
+.formHeader {
+  background-color: #212140;
+  padding: 0.2rem 0; }
+
+.formSection {
+  background-color: #131325;
+  height: 100vh;
+  display: flex; }
+
+.formContainer {
+  width: 40%;
+  margin: auto;
+  padding: 1rem;
+  border: 4px solid gray;
+  border-radius: 8px; }
+
+.formBox h2 {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 2rem;
+  color: white; }
+
+.formBox input {
+  width: 100%;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  padding: 0rem 0.5rem;
+  margin: 0.2rem 0;
+  border-radius: 4px;
+  color: gray;
+  border: 2px solid gray;
+  background-color: #222243; }
+
+.formBox textarea {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 0.05rem 0.5rem;
+  border: 2px solid gray;
+  border-radius: 4px;
+  color: gray;
+  resize: none;
+  background-color: #222243; }
+
+.formBox select {
+  width: 100%;
+  color: gray;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  border-radius: 4px;
+  margin: 0.2rem 0;
+  border: 2px solid gray;
+  background-color: #222243; }
+
+.formBox .summit {
+  color: white;
+  background-color: #48954a; }
+
+.authorForm {
+  padding: 1rem;
+  border-radius: 4px;
+  border: 2px solid #13d87c; }
+
+.bookSection {
+  height: 100vh;
+  display: flex;
+  background-color: #131325; }
+  .bookSection .allBookDetails {
+    display: flex;
+    border: 4px solid #212140;
+    border-radius: 4px; }
+    .bookSection .allBookDetails .imgDetailBox {
+      display: flex;
+      width: 80%; }
+      .bookSection .allBookDetails .imgDetailBox figure {
+        width: 30%;
+        height: 20rem;
+        border-radius: 4px;
+        transition: all 2s linear 0s;
+        box-shadow: 8px -2px 5px 5px #3b3b5f; }
+        .bookSection .allBookDetails .imgDetailBox figure img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 4px; }
+        .bookSection .allBookDetails .imgDetailBox figure:hover {
+          border-radius: 8px;
+          transition: all 2s linear 0s;
+          transform: perspective(500px) scaleZ(0.5) rotateY(35deg);
+          box-shadow: -10px -10px 5px 5px #3b3b5f; }
+      .bookSection .allBookDetails .imgDetailBox p {
+        color: gray; }
+    .bookSection .allBookDetails .bookInfo {
+      width: 20%; }
+
+.aboutBook {
+  width: 80%;
+  padding: 2rem; }
+  .aboutBook h3 {
+    font-size: 2rem;
+    text-transform: capitalize;
+    color: green;
+    margin-bottom: 1rem; }
+  .aboutBook .editBtn {
+    background-color: #48954a;
+    padding: 0.2rem 1rem;
+    border-radius: 4px;
+    border: none; }
+    .aboutBook .editBtn a {
+      font-size: 1.3rem;
+      color: white;
+      text-decoration: none; }
+  .aboutBook .deleteBtn {
+    background-color: #c51f1f;
+    padding: 0.2rem 1rem;
+    border-radius: 4px;
+    border: none; }
+    .aboutBook .deleteBtn a {
+      font-size: 1.3rem;
+      color: white;
+      text-decoration: none; }
+
+.bookInfo {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  background-color: #212140; }
+  .bookInfo span {
+    width: 70%;
+    padding: 1rem;
+    text-align: center;
+    color: gray;
+    background-color: #131325; }
+
+.booksUl {
+  padding: 1rem;
+  background-color: #131325; }
+  .booksUl h1 {
+    font-size: 2rem;
+    text-align: center;
+    color: gray; }
+  .booksUl li {
+    display: flex;
+    align-items: center;
+    padding: 0.1rem 0;
+    background-color: #212140;
+    margin-top: 0.5rem; }
+    .booksUl li figure {
+      width: 10%;
+      border: 2px solid yellow; }
+      .booksUl li figure img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; }
+    .booksUl li .booksSummary {
+      width: 80%;
+      height: 100%;
+      color: gray;
+      padding-left: 2rem; }
+      .booksUl li .booksSummary h3 {
+        margin: 0;
+        padding: 0; }
+      .booksUl li .booksSummary button {
+        margin: 0;
+        padding: 0;
+        border: none;
+        border-radius: 4px;
+        padding: 0.1rem 0.5rem;
+        background-color: #48954a; }
+        .booksUl li .booksSummary button a {
+          text-decoration: none;
+          font-size: 1.3rem;
+          color: white; }
+    .booksUl li:hover figure {
+      width: 20%;
+      height: 15rem; }
+      .booksUl li:hover figure img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 8px;
+        transition: all 2s linear 0s;
+        transform: perspective(500px) scaleZ(0.5) rotateY(35deg); }
+    .booksUl li:hover .booksSummary {
+      width: 70%;
+      padding: 0.8rem;
+      color: gray; }
+
+.imgInput {
+  width: 5rem;
+  height: 5rem; }
+
+/*# sourceMappingURL=style.css.map */

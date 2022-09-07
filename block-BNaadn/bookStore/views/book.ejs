@@ -1,0 +1,56 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>Book</title>
+  </head>
+  <body>
+    <header class="formHeader">
+      <nav class="container headerNav">
+        <ul>
+          <li>
+            <button>
+              <a href="">add book</a>
+            </button>
+          </li>
+          <li><h1>welcome to book app</h1></li>
+          <li>
+            <button>
+              <a href="/books">back</a>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section class="bookSection">
+        <div class="container allBookDetails">
+          <div class="imgDetailBox">
+            <figure>
+              <img src="/images/<%= book.image %>" alt="book" />
+            </figure>
+            <div class="aboutBook">
+              <p><%= book.summary %></p>
+              <br />
+              <h3><%= book.author.name %></h3>
+              <button class="editBtn">
+                <a href="/books/<%= book.id %>/edit">edit</a>
+              </button>
+              <button class="deleteBtn">
+                <a href="/books/<%= book.id%>/delete ">delete</a>
+              </button>
+            </div>
+          </div>
+          <div class="bookInfo">
+            <span> <%= book.pages %>/Pages </span>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
