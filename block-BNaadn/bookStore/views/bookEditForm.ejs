@@ -1,0 +1,123 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <title>book update form</title>
+  </head>
+  <body>
+    <header class="formHeader">
+      <nav class="container headerNav">
+        <ul>
+          <li>
+            <button>
+              <a href="">add book</a>
+            </button>
+          </li>
+          <li><h1>welcome to book app</h1></li>
+          <li>
+            <button>
+              <a href="/">back</a>
+            </button>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section class="formSection">
+      <div class="container formContainer">
+        <form
+          class="formBox"
+          action="/books/<%= book.id %>/update"
+          method="post"
+          enctype="multipart/form-data"
+        >
+          <h2>update book</h2>
+          <input
+            type="text"
+            name="title"
+            placeholder="title"
+            value="<%=book.title %>"
+          />
+          <textarea
+            name="summary"
+            id=""
+            cols="30"
+            rows="5"
+            placeholder="Summary"
+          >
+  <%= book.summary %>
+        </textarea
+          >
+          <input
+            type="number"
+            name="pages"
+            placeholder="pages"
+            value="<%= book.pages %>"
+          />
+          <input
+            type="text"
+            name="publication"
+            placeholder="publication"
+            value="<%= book.publication %>"
+          />
+          <select name="category" id="" placeholder="Category">
+            <option value="fiction" value="<%= book.value %>">fiction</option>
+            <option value="adventure" value="<%= book.value %>">
+              adventure
+            </option>
+            <option value="technology" value="<%= book.value %>">
+              technology
+            </option>
+            <option value="motivation" value="<%= book.value %>">
+              motivation
+            </option>
+          </select>
+          <input
+            type="file"
+            name="image"
+            placeholder="add cover_image"
+            value="<%= book.image %>"
+          />
+          <div style="width: 20%; height: 6rem; border: 2px solid gray">
+            <img
+              style="width: 100%; height: 100%; object-fit: cover"
+              src="/images/<%= book.image %>"
+              alt="<%= book.image %>"
+              class="form-img"
+            />
+            <input type="hidden" name="image" value="<%= book.image %>" />
+          </div>
+
+          <div class="authorForm">
+            <h2>author details</h2>
+            <input
+              type="text"
+              name="name"
+              placeholder="author name"
+              value="<%= book.author.name %>"
+            />
+
+            <input
+              type="email"
+              name="email"
+              placeholder="email"
+              value="<%= book.author.email %>"
+            />
+            <input
+              type="text"
+              name="country"
+              placeholder="country"
+              value="<%= book.author.country %>"
+            />
+          </div>
+          <input class="summit" type="submit" value="update book" />
+        </form>
+      </div>
+    </section>
+  </body>
+</html>
