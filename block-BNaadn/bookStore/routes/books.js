@@ -33,11 +33,11 @@ router.get(`/new`, (req, res, next) => {
 router.post(`/`, upload.single(`image`), (req, res, next) => {
   req.body.image = req.file.filename;
 
-  // console.log(req.file);
   Author.create(req.body, (err, author) => {
     if (err) return next(err);
     req.body.author = author._id;
     Book.create(req.body, (err, book) => {
+      if (err) return next(err);
       author.bookId = author.bookId + [book.id];
       author.save((err, author) => {
         if (err) return next(err);
@@ -54,28 +54,42 @@ router.get(`/`, (req, res, next) => {
     .populate(`author`)
     .exec((err, books) => {
       if (err) return next(err);
-      // console.log(books);
-      res.render(`books`, { books });
+      Book.distinct(`category`, (err, uniqueCategory) => {
+        if (err) return next(err);
+        Author.distinct(`name`, (err, uniqueAuthor) => {
+          if (err) return next(err);
+          console.log(uniqueAuthor);
+          Book.distinct(`title`, (err, uniqueTitle) => {
+            if (err) return next(err);
+            res.render(`books`, {
+              books,
+              uniqueCategory,
+              uniqueAuthor,
+              uniqueTitle,
+            });
+          });
+        });
+      });
     });
 });
 
 // edit book
 
 router.get(`/:id/edit`, (req, res, next) => {
+  let id = req.params.id;
   Book.findById(id)
     .populate(`author`)
     .exec((err, book) => {
       if (err) return next(err);
-      // console.log(err, book);
       res.render(`bookEditForm`, { book });
     });
 });
 
 // update book
 
-router.post(`/:id/update`, (req, res, next) => {
+router.post(`/:id/update`, upload.single(`image`), (req, res, next) => {
   let id = req.params.id;
-
+  req.body.image = req.file.filename;
   Book.findByIdAndUpdate(id, req.body, (err, book) => {
     Author.findByIdAndUpdate(book.author, req.body, (err, author) => {
       author.bookId = author.bookId + [id];
@@ -102,6 +116,51 @@ router.get(`/:id/delete`, (req, res, next) => {
       });
     });
   });
+});
+
+// search book
+
+router.post(`/search`, (req, res, next) => {
+  let title = req.body.title;
+  let category = req.body.category;
+  if (title) {
+    Book.find({ title: req.body.title }, (err, book) => {
+      let id = book[0].id;
+      if (err) return next(err);
+      res.redirect(`/books/` + id);
+    });
+  }
+  if (category) {
+    // Book.find({ category: category })
+    //   .populate(`author`)
+    //   .exec((err, books) => {
+    //     console.log(err, books);
+    //     if (err) return next(err);
+    //     res.redirect(`/books`);
+    //   });
+
+    Book.find({ category: category })
+      .populate(`author`)
+      .exec((err, books) => {
+        if (err) return next(err);
+        Book.distinct(`category`, (err, uniqueCategory) => {
+          if (err) return next(err);
+          Author.distinct(`name`, (err, uniqueAuthor) => {
+            if (err) return next(err);
+            console.log(uniqueAuthor);
+            Book.distinct(`title`, (err, uniqueTitle) => {
+              if (err) return next(err);
+              res.render(`books`, {
+                books,
+                uniqueCategory,
+                uniqueAuthor,
+                uniqueTitle,
+              });
+            });
+          });
+        });
+      });
+  }
 });
 
 // find single book

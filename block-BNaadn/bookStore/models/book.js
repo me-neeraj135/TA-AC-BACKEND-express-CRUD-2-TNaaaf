@@ -9,7 +9,7 @@ let bookSchema = new Schema(
     summary: { type: String },
     pages: { type: Number, default: 0 },
     publication: { type: String },
-    image: { type: String},
+    image: { type: String },
     category: { type: String },
     author: { type: Schema.Types.ObjectId, ref: `Author` },
   },
