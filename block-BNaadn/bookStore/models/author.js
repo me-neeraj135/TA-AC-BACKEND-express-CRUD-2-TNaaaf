@@ -5,7 +5,7 @@ let Schema = mongoose.Schema;
 
 let authorSchema = new Schema(
   {
-    name: { type: String, require: true },
+    name: { type: String, require: true, unique: true },
     email: { type: String, toLowercase: true, match: /@/ },
     country: { type: String },
     bookId: [{ type: Schema.Types.ObjectId, ref: `Book` }],

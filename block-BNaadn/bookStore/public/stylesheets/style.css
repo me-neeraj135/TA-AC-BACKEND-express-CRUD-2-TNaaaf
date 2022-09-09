@@ -344,8 +344,7 @@ table {
     background-color: #212140;
     margin-top: 0.5rem; }
     .booksUl li figure {
-      width: 10%;
-      border: 2px solid yellow; }
+      width: 10%; }
       .booksUl li figure img {
         width: 100%;
         height: 100%;
@@ -356,7 +355,8 @@ table {
       color: gray;
       padding-left: 2rem; }
       .booksUl li .booksSummary h3 {
-        margin: 0;
+        color: #3fd177;
+        margin-bottom: 0.1rem;
         padding: 0; }
       .booksUl li .booksSummary button {
         margin: 0;
@@ -367,7 +367,7 @@ table {
         background-color: #48954a; }
         .booksUl li .booksSummary button a {
           text-decoration: none;
-          font-size: 1.3rem;
+          font-weight: 800;
           color: white; }
     .booksUl li:hover figure {
       width: 20%;

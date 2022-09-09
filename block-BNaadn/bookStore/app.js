@@ -8,7 +8,6 @@ var logger = require("morgan");
 var sassMiddleware = require("node-sass-middleware");
 var mongoose = require(`mongoose`);
 
-
 var indexRouter = require("./routes/index");
 var booksRouter = require("./routes/books");
 
@@ -19,8 +18,6 @@ mongoose.connect(`mongodb://localhost/bookStore`, err => {
 });
 
 var app = express();
-
-
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
